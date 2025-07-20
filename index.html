@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World of Chelsea - Travel & Fashion Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced responsive design system */
+        body { 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Responsive typography scale */
+        .responsive-text-xs { font-size: clamp(0.75rem, 2vw, 0.875rem); }
+        .responsive-text-sm { font-size: clamp(0.875rem, 2.5vw, 1rem); }
+        .responsive-text-base { font-size: clamp(1rem, 3vw, 1.125rem); }
+        .responsive-text-lg { font-size: clamp(1.125rem, 3.5vw, 1.25rem); }
+        .responsive-text-xl { font-size: clamp(1.25rem, 4vw, 1.5rem); }
+        .responsive-text-2xl { font-size: clamp(1.5rem, 5vw, 2rem); }
+        .responsive-text-3xl { font-size: clamp(2rem, 6vw, 2.5rem); }
+        .responsive-text-4xl { font-size: clamp(2.5rem, 7vw, 3rem); }
+        .responsive-text-5xl { font-size: clamp(3rem, 8vw, 4rem); }
+        .responsive-text-6xl { font-size: clamp(4rem, 10vw, 5rem); }
+        
+        /* Enhanced mobile navigation */
+        .mobile-nav-enhanced {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            transition: left 0.3s ease-in-out;
+            z-index: 9999;
+        }
+        
+        .mobile-nav-enhanced.active {
+            left: 0;
+        }
+        
+        /* Responsive containers */
+        .responsive-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .responsive-container { padding: 0 1.5rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .responsive-container { padding: 0 2rem; }
+        }
+        
+        /* Enhanced hero video responsiveness */
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-video-container {
+                height: 70vh;
+            }
+            
+            .hero-video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        
+        /* Responsive grid system */
+        .responsive-grid-auto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 640px) {
+            .responsive-grid-auto {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        /* Enhanced button responsiveness */
+        .responsive-btn {
+            padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
+            border-radius: clamp(0.5rem, 1vw, 1rem);
+            min-height: 44px; /* Touch-friendly minimum */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        /* Responsive images */
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: clamp(0.5rem, 1vw, 1rem);
+        }
+        
+        .responsive-img-square {
+            aspect-ratio: 1;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .responsive-img-landscape {
+            aspect-ratio: 16/9;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        /* Enhanced card responsiveness */
+        .responsive-card {
+            background: white;
+            border-radius: clamp(0.5rem, 1vw, 1rem);
+            padding: clamp(1rem, 3vw, 2rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .responsive-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive spacing system */
+        .responsive-py {
+            padding-top: clamp(2rem, 5vw, 5rem);
+            padding-bottom: clamp(2rem, 5vw, 5rem);
+        }
+        
+        .responsive-px {
+            padding-left: clamp(1rem, 3vw, 2rem);
+            padding-right: clamp(1rem, 3vw, 2rem);
+        }
+        
+        .responsive-my {
+            margin-top: clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+        }
+        
+        /* Enhanced mobile menu */
+        @media (max-width: 768px) {
+            .mobile-menu-item {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                font-size: 1.125rem;
+                text-align: center;
+            }
+            
+            .mobile-social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                padding: 2rem;
+            }
+            
+            .mobile-social-icons a {
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: rgba(59, 130, 246, 0.1);
+                color: #3b82f6;
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Responsive lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 1rem;
+        }
+        
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Enhanced footer responsiveness */
+        .responsive-footer {
+            padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+        }
+        
+        .responsive-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .responsive-footer-grid {
+                text-align: left;
+            }
+        }
+        
+        /* Touch-friendly interactive elements */
+        .touch-friendly {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive arrows and icons */
+        .responsive-arrow {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            transition: transform 0.3s ease;
+        }
+        
+        .responsive-arrow:hover {
+            transform: translateX(4px);
+        }
+        
+        /* Enhanced scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-indicator {
+                bottom: 1rem;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Responsive video controls */
+        @media (max-width: 768px) {
+            video {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+        
+        /* Enhanced accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+        }
+        
+        /* Light Blue Color Palette */
+        :root {
+            --primary-blue: #87CEEB;        /* Sky blue */
+            --light-blue: #E6F3FF;         /* Very light blue */
+            --medium-blue: #4A90E2;        /* Medium blue */
+            --dark-blue: #2C5282;          /* Dark blue */
+            --accent-blue: #B8E6FF;        /* Accent light blue */
+        }
+        
+        /* Static Hero Title */
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+        }
+        
+        /* Navigation Brand Scroll Effects */
+        .nav-brand a {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: black !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-brand a:hover {
+            color: #4b5563 !important;
+        }
+        
+        /* When scrolled - keep navigation brand black */
+        .nav-scrolled .nav-brand a {
+            color: black !important;
+            font-weight: 800;
+        }
+        
+        .nav-scrolled .nav-brand a:hover {
+            color: #4b5563 !important;
+            transform: scale(1.05);
+        }
+        
+        /* Enhanced Navigation Glass Effect */
+        .nav-glass {
+            background: linear-gradient(135deg, 
+                rgba(135, 206, 235, 0.1) 0%, 
+                rgba(173, 216, 230, 0.2) 50%, 
+                rgba(135, 206, 235, 0.1) 100%);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(135, 206, 235, 0.3);
+            box-shadow: 0 8px 32px rgba(135, 206, 235, 0.1);
+        }
+        
+        /* Clean Navigation Links - Black */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: black !important;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, black, #4b5563);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: #4b5563 !important;
+        }
+        
+        /* Mobile Menu */
+        #mobileMenuBtn {
+            background: rgba(135, 206, 235, 0.2);
+            border-radius: 8px;
+            padding: 8px 12px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        #mobileMenuBtn:hover {
+            background: rgba(135, 206, 235, 0.3);
+            transform: scale(1.05);
+        }
+        
+        #mobileMenu {
+            background: linear-gradient(135deg, 
+                rgba(135, 206, 235, 0.95) 0%, 
+                rgba(173, 216, 230, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(135, 206, 235, 0.3);
+        }
+        
+        #mobileMenu a {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: black !important;
+        }
+        
+        #mobileMenu a:hover {
+            color: #4b5563 !important;
+            padding-left: 15px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Video Hero Section */
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Video Background */
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+        
+        /* Video Overlay */
+        .hero-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+        }
+        
+        /* Mobile Video Optimization */
+        @media (max-width: 768px) {
+            .hero-video {
+                /* On mobile, prioritize performance with mobile-specific video */
+                min-width: 100%;
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+            }
+            
+            .hero-bg {
+                /* Fallback background for mobile if video fails to load */
+                background: transparent;
+            }
+        }
+        
+        /* Tablet Optimization */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-video {
+                min-width: 100%;
+                min-height: 100%;
+            }
+        }
+        
+        /* Desktop Optimization */
+        @media (min-width: 1025px) {
+            .hero-video {
+                min-width: 100%;
+                min-height: 100%;
+            }
+        }
+        
+        /* Ensure content is above video */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Light Blue Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #87CEEB, #B0E0E6);
+            border-radius: 50%;
+        }
+        
+        .particle:nth-child(1) {
+            width: 8px;
+            height: 8px;
+            left: 10%;
+            top: 20%;
+        }
+        
+        .particle:nth-child(2) {
+            width: 12px;
+            height: 12px;
+            left: 20%;
+            top: 40%;
+        }
+        
+        .particle:nth-child(3) {
+            width: 6px;
+            height: 6px;
+            left: 70%;
+            top: 60%;
+        }
+        
+        .particle:nth-child(4) {
+            width: 10px;
+            height: 10px;
+            left: 80%;
+            top: 30%;
+        }
+        
+        .particle:nth-child(5) {
+            width: 14px;
+            height: 14px;
+            left: 50%;
+            top: 70%;
+        }
+        
+        /* Light Blue Travel Icons */
+        .travel-icon {
+            position: absolute;
+            color: #87CEEB;
+            font-size: 2rem;
+        }
+        
+        /* Light Blue Compass */
+        .compass {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            font-size: 3rem;
+            color: #87CEEB;
+        }
+        
+        /* Enhanced Hero Title */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 2px;
+            position: relative;
+            text-shadow: 
+                0 0 5px rgba(30, 58, 138, 1),
+                0 0 10px rgba(30, 58, 138, 0.8),
+                0 0 15px rgba(30, 58, 138, 0.6),
+                0 0 20px rgba(30, 58, 138, 0.4),
+                0 0 35px rgba(30, 58, 138, 0.3),
+                0 0 50px rgba(30, 58, 138, 0.2);
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            backdrop-filter: none;
+            box-shadow: none;
+            border: none;
+        }
+        
+        /* Remove Title Aura Effect */
+        .hero-title::before {
+            display: none;
+        }
+        
+        /* Static Hero Subtitle */
+        .hero-subtitle {
+            color: white;
+            font-weight: 500;
+            font-size: 1.1em;
+            line-height: 1.6;
+            position: relative;
+            text-shadow: 
+                0 0 3px rgba(30, 58, 138, 1),
+                0 0 6px rgba(30, 58, 138, 0.8),
+                0 0 10px rgba(30, 58, 138, 0.6),
+                0 0 15px rgba(30, 58, 138, 0.4),
+                0 0 25px rgba(30, 58, 138, 0.3),
+                0 0 35px rgba(30, 58, 138, 0.2);
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            backdrop-filter: none;
+            margin-top: 20px;
+            box-shadow: none;
+            border: none;
+        }
+        
+        /* Static Subtitle Words */
+        .subtitle-word {
+            display: inline;
+        }
+        
+        /* Remove Subtitle Shimmer Effect */
+        .hero-subtitle::before {
+            display: none;
+        }
+        
+        /* Static Adventure Buttons */
+        .adventure-btn {
+            position: relative;
+            font-weight: 600;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .adventure-btn::before,
+        .adventure-btn::after {
+            display: none;
+        }
+        
+        .adventure-btn:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Primary Adventure Button */
+        .adventure-btn.bg-gradient-to-r {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8, #1e40af) !important;
+            border: 2px solid #60a5fa;
+            position: relative;
+        }
+        
+        .adventure-btn.bg-gradient-to-r:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8, #1e3a8a) !important;
+            border-color: #93c5fd;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3), 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Secondary Adventure Button */
+        .adventure-btn.border-2 {
+            background: rgba(147, 197, 253, 0.1) !important;
+            border: 2px solid #60a5fa !important;
+            color: #3b82f6 !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .adventure-btn.border-2:hover {
+            background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+            color: white !important;
+            border-color: #93c5fd !important;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3), 0 0 30px rgba(147, 197, 253, 0.4);
+        }
+        
+        /* Static Adventure Button Icons */
+        .adventure-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Mobile Enhancements */
+        @media (max-width: 640px) {
+            .adventure-btn {
+                padding: 16px 24px !important;
+                font-size: 16px !important;
+                min-height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Static Scroll Indicator */
+        .enhanced-scroll {
+            /* Remove animation */
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-brand a {
+                font-size: 1.4rem;
+            }
+            
+            .travel-icon {
+                font-size: 1.5rem;
+            }
+            
+            .compass {
+                font-size: 2rem;
+                top: 10%;
+                right: 5%;
+            }
+            
+            .hero-title {
+                letter-spacing: 1px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-brand a {
+                font-size: 1.2rem;
+            }
+            
+            .travel-icon {
+                font-size: 1.2rem;
+            }
+            
+            .compass {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .parallax-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+
+        
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Navigation Styles */
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-scrolled .text-white {
+            color: #1e3a8a !important;
+        }
+        
+        .nav-scrolled .text-blue-500 {
+            color: #1e3a8a !important;
+        }
+        
+        /* Also update nav-link for scrolled state */
+        .nav-scrolled .nav-link {
+            color: black !important;
+        }
+        
+        .nav-scrolled .nav-link:hover {
+            color: #4b5563 !important;
+        }
+        
+        .nav-scrolled .nav-link::before {
+            background: linear-gradient(90deg, black, #4b5563);
+        }
+        
+
+        
+        /* Floating Background Elements */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(184, 230, 255, 0.1));
+            border-radius: 50%;
+            animation: floatShape 20s linear infinite;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 80%;
+            animation-delay: 5s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 50%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes floatShape {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced Section Transitions */
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(45deg, transparent 49%, rgba(135, 206, 235, 0.3) 50%, transparent 51%);
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--medium-blue));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+        
+        /* Enhanced Card Hover Effects */
+        .enhanced-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enhanced-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .enhanced-card:hover::before {
+            left: 100%;
+        }
+        
+        .enhanced-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.2);
+            border: 1px solid var(--accent-blue);
+        }
+        
+        /* Parallax Scroll Effects */
+        .parallax-element {
+            transform: translateZ(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Enhanced Button Effects */
+        .magic-btn {
+            position: relative;
+            background: linear-gradient(45deg, var(--primary-blue), var(--medium-blue), var(--primary-blue));
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            border: none;
+            overflow: hidden;
+        }
+        
+        .magic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .magic-btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Text Reveal Animation */
+        .text-reveal {
+            overflow: hidden;
+        }
+        
+        .text-reveal span {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: textReveal 0.8s ease forwards;
+        }
+        
+        @keyframes textReveal {
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhanced Scroll Indicator */
+        .enhanced-scroll {
+            position: relative;
+        }
+        
+        .enhanced-scroll::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, #fff);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollLine {
+            0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
+        }
+        
+        /* Adventure Card Effects */
+        .adventure-card {
+            position: relative;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .adventure-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(184, 230, 255, 0.3));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .adventure-card:hover::before {
+            opacity: 1;
+        }
+        
+        .adventure-card:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="font-['Inter']">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <!-- Enhanced Navigation -->
+    <nav id="mainNav" class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div class="responsive-container">
+            <div class="flex items-center justify-between py-3 md:py-4">
+                <div class="nav-brand">
+                    <a href="#home" class="responsive-text-xl md:responsive-text-2xl font-bold text-black transition-colors duration-300">The World of Chelsea</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#home" class="nav-link responsive-text-sm font-medium text-black hover:text-gray-600 transition-colors duration-300">Home</a>
+                    <a href="#about" class="nav-link responsive-text-sm font-medium text-black hover:text-gray-600 transition-colors duration-300">About Chelsea</a>
+                    <a href="#guides" class="nav-link responsive-text-sm font-medium text-black hover:text-gray-600 transition-colors duration-300">Travel Guides</a>
+                    <a href="#experiences" class="nav-link responsive-text-sm font-medium text-black hover:text-gray-600 transition-colors duration-300">Experiences</a>
+                    <a href="#fashion" class="nav-link responsive-text-sm font-medium text-black hover:text-gray-600 transition-colors duration-300">Fashion</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden touch-friendly text-black hover:text-gray-600 transition-colors duration-300">
+                    <i class="fas fa-bars responsive-text-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Enhanced Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+            <div class="responsive-container py-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="mobile-menu-item responsive-text-base font-medium text-black hover:text-gray-600 transition-colors duration-300">Home</a>
+                    <a href="#about" class="mobile-menu-item responsive-text-base font-medium text-black hover:text-gray-600 transition-colors duration-300">About Chelsea</a>
+                    <a href="#guides" class="mobile-menu-item responsive-text-base font-medium text-black hover:text-gray-600 transition-colors duration-300">Travel Guides</a>
+                    <a href="#experiences" class="mobile-menu-item responsive-text-base font-medium text-black hover:text-gray-600 transition-colors duration-300">Experiences</a>
+                    <a href="#fashion" class="mobile-menu-item responsive-text-base font-medium text-black hover:text-gray-600 transition-colors duration-300">Fashion</a>
+                </div>
+                
+                <!-- Mobile Social Icons -->
+                <div class="mobile-social-icons mt-6">
+                    <a href="https://www.instagram.com/theworldof_chelsea" target="_blank" class="touch-friendly">
+                        <i class="fab fa-instagram text-black"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61554762632836" target="_blank" class="touch-friendly">
+                        <i class="fab fa-facebook text-black"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@theworldofchelsea" target="_blank" class="touch-friendly">
+                        <i class="fab fa-tiktok text-black"></i>
+                    </a>
+                    <a href="https://linktr.ee/theworldofchelsea" target="_blank" class="touch-friendly">
+                        <i class="fas fa-external-link-alt text-black"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center text-white relative">
+        <!-- Static Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800"></div>
+        
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <div class="hero-content relative z-10 max-w-4xl mx-auto px-6 w-full">
+            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-['Playfair_Display'] mb-6 text-center">
+                The World of Chelsea
+            </h1>
+            <p class="hero-subtitle text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-center leading-relaxed">
+                Join me on extraordinary adventures around the globe. Discover hidden gems, luxury experiences, and timeless fashion inspiration.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+                <a href="#what-youll-find" class="adventure-btn bg-gradient-to-r from-blue-400 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold w-full sm:w-auto text-center">
+                    <i class="fas fa-compass"></i>Start Exploring
+                </a>
+                <a href="#guides" class="adventure-btn border-2 border-blue-300 text-blue-300 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold w-full sm:w-auto text-center">
+                    <i class="fas fa-map-marked-alt"></i>Travel Guides
+                </a>
+            </div>
+        </div>
+        
+        <!-- Static Scroll Indicator -->
+        <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <a href="#what-youll-find" class="text-white text-center block">
+                <div class="text-sm mb-2">Discover More</div>
+                <i class="fas fa-chevron-down text-xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- What You'll Find Here -->
+    <section id="what-youll-find" class="py-20 bg-white relative overflow-hidden">
+        <!-- Adventure Background Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-10 text-6xl text-blue-500 transform rotate-12"><i class="fas fa-plane"></i></div>
+            <div class="absolute top-20 right-20 text-4xl text-pink-500 transform -rotate-12"><i class="fas fa-camera"></i></div>
+            <div class="absolute bottom-20 left-20 text-5xl text-purple-500 transform rotate-45"><i class="fas fa-compass"></i></div>
+            <div class="absolute bottom-10 right-10 text-4xl text-green-500 transform -rotate-45"><i class="fas fa-mountain"></i></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-center mb-8 fade-in text-reveal">What You'll Find Here</h2>
+            <p class="text-xl text-gray-600 text-center mb-16 fade-in max-w-3xl mx-auto">🌍 Ready for an adventure? Dive into a world of wanderlust, style, and unforgettable experiences! ✈️</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                <a href="#guides" class="text-center group fade-in transform hover:scale-105 transition-all duration-300 cursor-pointer adventure-card">
+                    <div class="bg-gradient-to-br from-blue-100 to-blue-200 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        <i class="fas fa-map-marked-alt text-blue-600 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors">🗺️ Travel Guides</h3>
+                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors">Epic destination guides with secret spots, local insider tips, and hidden gems that'll make your friends jealous! 🏝️</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-blue-500 font-semibold">Explore Now →</span>
+                    </div>
+                </a>
+                
+                <a href="#instagrammable-spots" class="text-center group fade-in transform hover:scale-105 transition-all duration-300 cursor-pointer adventure-card">
+                    <div class="bg-gradient-to-br from-pink-100 to-pink-200 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-pink-200 group-hover:to-pink-300 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        <i class="fas fa-camera text-pink-600 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-pink-600 transition-colors">📸 Photography</h3>
+                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors">Stunning shots from the world's most Instagrammable spots. Get ready for some serious wanderlust! 📷✨</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-pink-500 font-semibold">See Gallery →</span>
+                    </div>
+                </a>
+                
+                <a href="#fashion" class="text-center group fade-in transform hover:scale-105 transition-all duration-300 cursor-pointer adventure-card">
+                    <div class="bg-gradient-to-br from-purple-100 to-purple-200 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-purple-200 group-hover:to-purple-300 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        <i class="fas fa-tshirt text-purple-600 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-purple-600 transition-colors">👗 Fashion</h3>
+                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors">Travel in style! From beach chic to mountain glam, discover looks that'll make every destination your runway! 💃</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-purple-500 font-semibold">Shop Looks →</span>
+                    </div>
+                </a>
+                
+                <a href="#experiences" class="text-center group fade-in transform hover:scale-105 transition-all duration-300 cursor-pointer adventure-card">
+                    <div class="bg-gradient-to-br from-green-100 to-green-200 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        <i class="fas fa-star text-green-600 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-green-600 transition-colors">🌟 Experiences</h3>
+                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors">Once-in-a-lifetime adventures! From hot air balloons to wine tours, let's create memories that last forever! 🎈🍷</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-green-500 font-semibold">Adventure Awaits →</span>
+                    </div>
+                </a>
+                
+                <a href="#about" class="text-center group fade-in transform hover:scale-105 transition-all duration-300 cursor-pointer adventure-card">
+                    <div class="bg-gradient-to-br from-orange-100 to-orange-200 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        <i class="fas fa-heart text-orange-600 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-orange-600 transition-colors">💖 Inspiration</h3>
+                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors">Daily doses of wanderlust and life inspiration! Join the adventure and live your best travel life! 🌈✈️</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-orange-500 font-semibold">Get Inspired →</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Fun Call-to-Action -->
+            <div class="text-center mt-16 fade-in">
+                <div class="inline-block bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 p-1 rounded-full">
+                    <div class="bg-white rounded-full px-8 py-4">
+                        <p class="text-lg font-semibold bg-gradient-to-r from-yellow-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
+                            🎉 Ready to turn your feed into a travel diary? Let's go! 🎉
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Featured Travel Guides -->
+    <section id="guides" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-center mb-16 fade-in">Featured Travel Guides</h2>
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-400 to-orange-500 flex items-center justify-center text-white text-6xl">
+                        🇹🇷
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Cappadocia, Turkey</h3>
+                        <p class="text-gray-600 mb-4">Experience the magical fairy chimneys and underground cities of Cappadocia. Float above surreal landscapes in a hot air balloon and explore ancient cave churches carved into volcanic rock.</p>
+                        <a href="turkey-guide.html" class="text-blue-500 hover:text-blue-600 font-medium">Read More →</a>
+                    </div>
+                </div>
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-600 to-green-600 flex items-center justify-center text-white text-6xl">
+                        🇲🇦
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Morocco - Marrakech to the Sahara & Beyond</h3>
+                        <p class="text-gray-600 mb-4">Journey through Morocco's imperial cities and golden dunes. From the bustling souks of Marrakech to the endless Sahara Desert, experience the magic of North Africa's most enchanting kingdom.</p>
+                        <a href="morocco-guide.html" class="text-blue-500 hover:text-blue-600 font-medium">Read More →</a>
+                    </div>
+                </div>
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-orange-500 to-green-600 flex items-center justify-center text-white text-6xl">
+                        🇮🇳
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Agra, India</h3>
+                        <p class="text-gray-600 mb-4">Marvel at the eternal symbol of love, the Taj Mahal, and explore the rich Mughal heritage of Agra. Discover magnificent forts, gardens, and the timeless beauty of India's golden triangle.</p>
+                        <a href="india-guide.html" class="text-blue-500 hover:text-blue-600 font-medium">Read More →</a>
+                    </div>
+                </div>
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-green-600 to-red-600 flex items-center justify-center text-white text-6xl">
+                        🇮🇹
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Rome, Italy</h3>
+                        <p class="text-gray-600 mb-4">Experience la dolce vita in the Eternal City. From ancient Colosseum to Vatican masterpieces, discover 3 days of history, art, and Italian charm in Rome.</p>
+                        <a href="rome-guide.html" class="text-blue-500 hover:text-blue-600 font-medium">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center fade-in">
+                <a href="https://theworldofchelsea.co.uk/travel-guides?blog=y" class="magic-btn text-white px-8 py-3 rounded-full transition-colors inline-block">View All Travel Guides</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Unique Experiences -->
+    <section id="experiences" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-center mb-16 fade-in">Unique Experiences</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="relative group overflow-hidden rounded-lg fade-in">
+                    <div class="w-full h-80 bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white text-6xl group-hover:scale-110 transition-transform duration-500">
+                        🇮🇸
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-semibold mb-2">Solo travel to Iceland</h3>
+                            <p class="mb-4">Discover the land of fire and ice on your own adventure</p>
+                            <a href="https://www.tiktok.com/@theworldofchelsea/video/7525354594235338006?is_from_webapp=1&sender_device=pc&web_id=7516823337781659154" target="_blank" class="text-blue-300 hover:text-blue-200">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg fade-in">
+                    <div class="w-full h-80 bg-gradient-to-br from-red-500 to-blue-600 flex items-center justify-center text-white text-6xl group-hover:scale-110 transition-transform duration-500">
+                        🇬🇧
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-semibold mb-2">Appuldurcombe House on the Isle of Wight</h3>
+                            <p class="mb-4">Explore historic ruins with stunning countryside views</p>
+                            <a href="https://www.tiktok.com/@theworldofchelsea/video/7519583883722001686?is_from_webapp=1&sender_device=pc&web_id=7516823337781659154" target="_blank" class="text-blue-300 hover:text-blue-200">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg fade-in">
+                    <div class="w-full h-80 bg-gradient-to-br from-purple-500 to-gold-500 flex items-center justify-center text-white text-6xl group-hover:scale-110 transition-transform duration-500">
+                        🕌
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-semibold mb-2">Stepping into history at Jama Masjid</h3>
+                            <p class="mb-4">Experience the grandeur of India's largest mosque</p>
+                            <a href="https://www.tiktok.com/@theworldofchelsea/video/7473048085946567958?is_from_webapp=1&sender_device=pc&web_id=7516823337781659154" target="_blank" class="text-blue-300 hover:text-blue-200">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Instagrammable Spots -->
+    <section id="instagrammable-spots" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-center mb-16 fade-in">Instagrammable Spots</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="aspect-square bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    📸
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🌊
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🌿
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🌅
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-red-400 to-pink-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🏛️
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🎨
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-teal-400 to-blue-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🏖️
+                </div>
+                <div class="aspect-square bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center text-white text-4xl hover:scale-105 transition-transform duration-300 cursor-pointer fade-in">
+                    🌺
+                </div>
+            </div>
+            <div class="text-center fade-in">
+                <a href="#" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-8 py-3 rounded-full transition-colors inline-block">
+                    <i class="fab fa-instagram mr-2"></i>Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Travel Style (Fashion) -->
+    <section id="fashion" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-center mb-16 fade-in">Travel Style</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white text-6xl">
+                        👗
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Travel in Style & Comfort 🌍</h3>
+                        <p class="text-gray-600 mb-4">Effortless, boho-chic and perfect for every destination ✈️ I'm obsessed with this 2-in-1 maxi harem pants and jumpsuit from @likemarylondon. The Lotus Flower motif adds such a beautiful, feminine touch and the lightweight fabric makes it ideal for beach days, exploring new cities or lounging in luxury 🪷</p>
+                        <a href="https://www.likemary.com/theworldof_chelsea" target="_blank" class="text-blue-500 hover:text-blue-600 font-medium">Shop the Look →</a>
+                    </div>
+                </div>
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-white text-6xl">
+                        👠
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Marrakech Palace Style 🇲🇦</h3>
+                        <p class="text-gray-600 mb-4">Strolling through Marrakech's palaces in the dreamiest floaty dress. Light, breezy, and yes… it has pockets! ✨🙌 So thrilled to have been the first to showcase this stunning new design by @likemarylondon - where ethical fashion meets effortlessly timeless style 🌿</p>
+                        <a href="https://www.likemary.com/theworldof_chelsea" target="_blank" class="text-blue-500 hover:text-blue-600 font-medium">Shop the Look →</a>
+                    </div>
+                </div>
+                <div class="enhanced-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="w-full h-64 bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white text-6xl">
+                        👜
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">✨ First wear & forever favourite ✨</h3>
+                        <p class="text-gray-600 mb-4">My brand new @likemarylondon dress just landed — and I'm the first to wear this limited edition piece! 🩵 Made from reclaimed fabric saved from landfill ♻️, this eco-conscious beauty is designed for real life — lightweight, breezy, and no ironing needed. And yes… it has POCKETS 🖤</p>
+                        <a href="https://www.likemary.com/theworldof_chelsea" target="_blank" class="text-blue-500 hover:text-blue-600 font-medium">Shop the Look →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Brand Testimonials -->
+    <section class="py-20 parallax-bg text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-center mb-16 fade-in">What Brands Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"Thank you so much for creating this incredible content! We're truly excited to share it and will be sure to give you full credit in our posts. It was an absolute pleasure having you with us, and we look forward to future collaborations!"</p>
+                    <div class="text-center">
+                        <p class="font-semibold">Numo Hotels</p>
+                        <p class="text-sm opacity-75">Luxury Hospitality</p>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"Thank you so much for the collaboration. The footage you sent us is absolutely fantastic, and we truly appreciate the effort and quality. It was a pleasure working with you, and we hope to see you again in the near future. Until then, wish you the best."</p>
+                    <div class="text-center">
+                        <p class="font-semibold">Camarades Mykonos</p>
+                        <p class="text-sm opacity-75">Luxury Resort</p>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"We first collaborated with Chelsea in November, and she has been an absolute joy to work with from the very beginning. Her communication is always clear and thoughtful, and she has delivered gorgeous, high-quality content that captures so beautifully the spirit of our brand. We are now proud to have Chelsea on board as top collaborator on our affiliate program. Watching her grow her following across social platforms is such a pleasure. Her content is consistently fresh, authentic, and so very well made. We are excited and honoured to continue working with Chelsea!"</p>
+                    <div class="text-center">
+                        <p class="font-semibold">likemary London</p>
+                        <p class="text-sm opacity-75">Sustainable Fashion Brand</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+in     <!-- About Chelsea -->
+    <section id="about" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Section Header with decorative line -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center mb-4">
+                    <div class="w-16 h-px bg-gradient-to-r from-transparent to-blue-400"></div>
+                    <i class="fas fa-heart text-blue-400 mx-4 text-xl"></i>
+                    <div class="w-16 h-px bg-gradient-to-l from-transparent to-blue-400"></div>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-['Playfair_Display'] bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">About Chelsea</h2>
+                <p class="text-blue-500 font-medium tracking-wide uppercase text-sm">Travel Creator & Fashion Enthusiast</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in order-2 md:order-1">
+                    <!-- Quote decoration -->
+                    <div class="relative">
+                        <i class="fas fa-quote-left text-6xl text-blue-200 absolute -top-4 -left-4 z-0"></i>
+                        <div class="relative z-10 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                            <p class="text-lg text-gray-700 mb-6 leading-relaxed">Hi, I'm <span class="font-semibold text-blue-600">Chelsea Rodd</span>, a UK-based travel and fashion creator with a passion for discovering the world's most beautiful destinations and sharing them with you. With over <span class="font-semibold text-purple-600">5 years of experience</span> in content creation and a background in fashion styling, I bring a unique perspective to travel storytelling.</p>
+                            
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-px bg-gradient-to-r from-blue-400 to-purple-400 mr-4"></div>
+                                <i class="fas fa-plane text-blue-400 text-xl"></i>
+                                <div class="w-12 h-px bg-gradient-to-l from-blue-400 to-purple-400 ml-4"></div>
+                            </div>
+                            
+                            <p class="text-lg text-gray-700 mb-8 leading-relaxed">My mission is to inspire others to explore the world with <span class="font-semibold text-blue-600">style and confidence</span>, whether you're planning a weekend city break or a month-long adventure. I believe that travel is not just about the places you visit, but the <span class="font-semibold text-purple-600">memories you create</span> and the person you become along the way.</p>
+                            
+                            <!-- Enhanced social media section -->
+                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
+                                <p class="text-center text-gray-600 mb-4 font-medium">Connect with me</p>
+                                <div class="flex justify-center space-x-6">
+                                    <a href="https://www.instagram.com/theworldof_chelsea?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" class="group relative">
+                                        <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                                        <div class="relative bg-white rounded-full p-3 group-hover:scale-110 transition duration-300">
+                                            <i class="fab fa-instagram text-2xl bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent"></i>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.facebook.com/profile.php?id=61554762632836&ref=_xav_ig_profile_page_web#" target="_blank" class="group relative">
+                                        <div class="absolute inset-0 bg-blue-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                                        <div class="relative bg-white rounded-full p-3 group-hover:scale-110 transition duration-300">
+                                            <i class="fab fa-facebook text-2xl text-blue-600"></i>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.tiktok.com/@theworldofchelsea?_t=8c5wv8apmbm&_r=1" target="_blank" class="group relative">
+                                        <div class="absolute inset-0 bg-gray-800 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                                        <div class="relative bg-white rounded-full p-3 group-hover:scale-110 transition duration-300">
+                                            <i class="fab fa-tiktok text-2xl text-gray-800"></i>
+                                        </div>
+                                    </a>
+                                    <a href="https://linktr.ee/theworldofchelsea?fbclid=PAZXh0bgNhZW0CMTEAAafMTWAhM2-D6Z1srUHIR4meo98EtbFJNVyOy1eHMlIF7MHgXjABqjj-pTtoDA_aem_lpUIads6Nwfou9JKzzVyXg" target="_blank" class="group relative">
+                                        <div class="absolute inset-0 bg-green-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                                        <div class="relative bg-white rounded-full p-2 group-hover:scale-110 transition duration-300">
+                                            <i class="fas fa-external-link-alt text-lg text-green-600"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in order-1 md:order-2 relative">
+                    <!-- Decorative frame -->
+                    <div class="relative group">
+                        <!-- Animated border -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                        
+                        <!-- Image container -->
+                        <div class="relative bg-white rounded-2xl p-2">
+                            <div class="w-3/4 mx-auto h-96 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl shadow-2xl flex items-center justify-center text-white text-8xl group-hover:scale-105 transition duration-500">
+                                👩‍💼
+                            </div>
+                            
+                            <!-- Floating elements -->
+                            <div class="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg animate-bounce" style="animation-delay: 0.5s;">
+                                <i class="fas fa-camera text-blue-500 text-xl"></i>
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg animate-bounce" style="animation-delay: 1.5s;">
+                                <i class="fas fa-map-marked-alt text-purple-500 text-xl"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Stats overlay -->
+                        <div class="absolute bottom-8 left-8 right-8">
+                            <div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div>
+                                        <p class="text-2xl font-bold text-blue-600">5+</p>
+                                        <p class="text-xs text-gray-600">Years Experience</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold text-purple-600">50+</p>
+                                        <p class="text-xs text-gray-600">Destinations</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold text-pink-600">100+</p>
+                                        <p class="text-xs text-gray-600">Collaborations</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></di    <!-- Footer -->
+    <footer class="relative bg-gradient-to-br from-blue-50 via-sky-100 to-blue-200 text-gray-800 py-6 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-48 h-48 bg-blue-300/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-sky-300/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-blue-200/30 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Main footer content -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <!-- Brand section -->
+                <div class="text-center md:text-left">
+                    <div class="mb-4">
+                        <a href="https://theworldofchelsea.co.uk/" target="_blank" class="inline-block">
+                            <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-600 via-sky-600 to-blue-700 bg-clip-text text-transparent hover:scale-105 transition duration-300">
+                                The World of Chelsea
+                            </h2>
+                        </a>
+                        <div class="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-sky-500 mx-auto md:mx-0 mt-1 rounded-full"></div>
+                    </div>
+                    <p class="text-gray-700 text-base mb-2">Chelsea Rodd</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">UK Travel & Fashion Creator</p>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-2 mt-3">
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-blue-600">5+</p>
+                            <p class="text-xs text-gray-500">Years</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-sky-600">50+</p>
+                            <p class="text-xs text-gray-500">Destinations</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-blue-700">100+</p>
+                            <p class="text-xs text-gray-500">Collaborations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick links -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800">Quick Links</h3>
+                    <div class="space-y-1">
+                        <a href="#home" class="block text-gray-600 hover:text-blue-600 transition duration-300 text-sm">Home</a>
+                        <a href="#about" class="block text-gray-600 hover:text-sky-600 transition duration-300 text-sm">About Chelsea</a>
+                        <a href="#guides" class="block text-gray-600 hover:text-blue-700 transition duration-300 text-sm">Travel Guides</a>
+                        <a href="#experiences" class="block text-gray-600 hover:text-blue-600 transition duration-300 text-sm">Experiences</a>
+                        <a href="#fashion" class="block text-gray-600 hover:text-sky-600 transition duration-300 text-sm">Fashion</a>
+                    </div>
+                </div>
+                
+                <!-- Social media -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800">Follow the Journey</h3>
+                    <div class="flex justify-center space-x-3 mb-3">
+                        <a href="https://www.instagram.com/theworldof_chelsea?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative bg-white rounded-full p-2 group-hover:scale-110 transition duration-300 shadow-lg">
+                                <i class="fab fa-instagram text-lg bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61554762632836&ref=_xav_ig_profile_page_web#" target="_blank" class="group relative">
+                            <div class="absolute inset-0 bg-blue-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative bg-white rounded-full p-2 group-hover:scale-110 transition duration-300 shadow-lg">
+                                <i class="fab fa-facebook text-lg text-blue-600"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.tiktok.com/@theworldofchelsea?_t=8c5wv8apmbm&_r=1" target="_blank" class="group relative">
+                            <div class="absolute inset-0 bg-gray-800 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative bg-white rounded-full p-2 group-hover:scale-110 transition duration-300 shadow-lg">
+                                <i class="fab fa-tiktok text-lg text-gray-800"></i>
+                            </div>
+                        </a>
+                        <a href="https://linktr.ee/theworldofchelsea?fbclid=PAZXh0bgNhZW0CMTEAAafMTWAhM2-D6Z1srUHIR4meo98EtbFJNVyOy1eHMlIF7MHgXjABqjj-pTtoDA_aem_lpUIads6Nwfou9JKzzVyXg" target="_blank" class="group relative">
+                            <div class="absolute inset-0 bg-green-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative bg-white rounded-full p-1.5 group-hover:scale-110 transition duration-300 shadow-lg">
+                                <i class="fas fa-external-link-alt text-sm text-green-600"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 text-xs">Join thousands of fellow travelers</p>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="relative mb-4">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-blue-200"></div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="bg-gradient-to-r from-blue-400 to-sky-500 w-12 h-0.5 rounded-full"></div>
+                </div>
+            </div>
+            
+            <!-- Bottom section -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-2 md:mb-0">
+                    <p class="text-gray-600 text-xs">© 2023 The World of Chelsea. All rights reserved.</p>
+                    <p class="text-gray-500 text-xs mt-0.5">Made with ❤️ for fellow wanderers</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 text-xs transition duration-300 hover:underline">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-sky-600 text-xs transition duration-300 hover:underline">Terms of Service</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-700 text-xs transition duration-300 hover:underline">Contact</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-4 right-4 opacity-30">
+            <i class="fas fa-plane text-2xl text-blue-500 transform rotate-45 animate-pulse"></i>
+        </div>
+        <div class="absolute bottom-4 left-4 opacity-30">
+            <i class="fas fa-camera text-xl text-sky-500 animate-pulse" style="animation-delay: 1s;"></i>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" src="" alt="">
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Enhanced scroll effects with navigation color change
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            const navBrand = nav.querySelector('.nav-brand a');
+            const scrolled = window.scrollY;
+            
+            if (scrolled > 100) {
+                nav.classList.add('nav-scrolled');
+                // Additional black styling for better readability
+                navBrand.style.color = 'black';
+                navBrand.style.fontWeight = '800';
+            } else {
+                nav.classList.remove('nav-scrolled');
+                // Reset to original black color
+                navBrand.style.color = 'black';
+                navBrand.style.fontWeight = '700';
+            }
+            
+            // Parallax effect for elements
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+        
+        // Static page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove all animation-related JavaScript
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Lightbox functionality (disabled for placeholder content)
+        function openLightbox(src) {
+            // Disabled for placeholder content
+        }
+
+        function closeLightbox() {
+            // Disabled for placeholder content
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
